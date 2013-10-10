@@ -1,6 +1,8 @@
-(ns drone.core)
+(ns drone.core
+  (:use [clj-drone.core]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn foo []
+  (drone-initialize :default "192.168.1.1" 5556)
+  (drone :take-off)
+  (Thread/sleep 4000)
+  (drone :land))
