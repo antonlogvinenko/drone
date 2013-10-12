@@ -1,8 +1,31 @@
 (ns drone.core
   (:use [clj-drone.core]))
 
-(defn foo []
-  (drone-initialize :default "192.168.1.1" 5556)
-  (drone :take-off)
-  (Thread/sleep 4000)
+(defn l []
+  (drone :land))
+
+(defn rise []
+  (drone-initialize)
+  (drone :emergency)
+  (drone :flat-trim)
+  (drone :take-off))
+
+(defn simple []
+  (rise)
+  (Thread/sleep 5000)
+  (l))
+
+(defn flip []
+  (rise)
+  (drone :up 1)
+  (Thread/sleep 7000)
+  (drone :anim-flip-right)
+  (Thread/sleep 7000)
+  (l))
+
+(defn roundel []
+  (rise)
+  (Thread/sleep 5000)
+  (drone :target-roundel-v)
+  (Thread/sleep 30000)
   (drone :land))
