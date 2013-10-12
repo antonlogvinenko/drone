@@ -1,8 +1,7 @@
 (ns drone.core
   (:use [clj-drone.core]))
 
-(defn l []
-  (drone :land))
+(defn l [] (drone :land))
 
 (defn rise []
   (drone-initialize)
@@ -10,8 +9,7 @@
   (drone :flat-trim)
   (drone :take-off))
 
-(defn sleep [n]
-  (-> n (* 1000) Thread/sleep))
+(defn sleep [n] (-> n (* 1000) Thread/sleep))
 
 (defn simple []
   (rise)
