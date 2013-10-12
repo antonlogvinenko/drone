@@ -10,22 +10,24 @@
   (drone :flat-trim)
   (drone :take-off))
 
+(defn sleep [n]
+  (-> n (* 1000) Thread/sleep))
+
 (defn simple []
   (rise)
-  (Thread/sleep 5000)
+  (sleep 5)
   (l))
 
 (defn flip []
   (rise)
-  (drone :up 1)
-  (Thread/sleep 7000)
+  (sleep 7)
   (drone :anim-flip-right)
-  (Thread/sleep 7000)
+  (sleep 7)
   (l))
 
 (defn roundel []
   (rise)
-  (Thread/sleep 5000)
+  (sleep 5)
   (drone :target-roundel-v)
-  (Thread/sleep 30000)
+  (sleep 15)
   (drone :land))
